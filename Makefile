@@ -56,7 +56,7 @@ compile:
 	@mv libGL.abc install/usr/lib/
 	
 	@echo "Compiling libGL.cpp"
-	@$(FLASCC)/usr/bin/g++ -fno-exceptions -O4 -c -Iinstall/usr/include/ libGL.cpp
+	@$(FLASCC)/usr/bin/g++ -fno-exceptions -O2 -c -Iinstall/usr/include/ libGL.cpp
 	@$(FLASCC)/usr/bin/ar crus install/usr/lib/libGL.a install/usr/lib/libGL.abc libGL.o 
 
 	@rm -f libGL.o 

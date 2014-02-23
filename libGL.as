@@ -1825,6 +1825,7 @@ package GLS3D
                 }
             } else if (texture == 0) {
                 // FIXME (egeorgie): just set the sampler to null and clear the active texture params?
+                context.setTextureAt(activeTextureUnit, null)
                 if (log) log.send("Trying bind the non-existent texture 0!")
                 return
             }
@@ -1845,6 +1846,9 @@ package GLS3D
             activeTexture = textures[texture]
             activeTexture.boundType = type
             textureSamplers[activeTextureUnit] = activeTexture
+
+            context.setTextureAt(activeTextureUnit, activeTexture.texture)
+            
             
             if (type != GL_TEXTURE_2D && type != GL_TEXTURE_CUBE_MAP)
             {
